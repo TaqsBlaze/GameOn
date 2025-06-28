@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Scop - Discover Your Next Favorite Game</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles for the Outfit font and Vercel-inspired theme */
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0d0d0d; /* Very dark background */
+            color: #f3f4f6; /* Light gray text */
+            margin: 0;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+
+        /* Subtle Background Gradient Animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animated-gradient-background {
+            background: linear-gradient(270deg, #0d0d0d, #1a1a1a, #0d0d0d); /* Dark to slightly lighter dark */
+            background-size: 600% 600%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        /* Hero Text Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 0.3s; /* Delay for subtitle */
+            opacity: 0; /* Initial state before animation */
+        }
+
+        .animate-fadeIn.delay-1 {
+            animation-delay: 0.6s; /* Delay for button */
+        }
+
+        /* Subtle glowing border for cards/sections */
+        .glowing-border {
+            position: relative;
+            z-index: 1;
+        }
+        .glowing-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px; /* Slightly outside the element */
+            border-radius: 12px; /* Match element's rounded-xl */
+            padding: 2px; /* Creates the border effect */
+            background: linear-gradient(45deg, #a78bfa, #c084fc, #a78bfa); /* Purple gradient */
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            filter: blur(8px); /* Subtle glow */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1; /* Behind the content */
+        }
+        .glowing-border:hover::before {
+            opacity: 0.6; /* Show glow on hover */
+        }
+
+        /* Custom scrollbar for better aesthetics, matching dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a; /* Darker track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; /* Grayish thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* Lighter gray on hover */
+        }
+    </style>
+</head>
+<body class="animated-gradient-background">
+    <!-- Header -->
+    <header class="absolute top-0 left-0 w-full p-6 z-10">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-purple-500 tracking-tight">Game Scop</a>
+            <button id="downloadBtnNav" class="bg-purple-700 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition-all duration-300 transform hover:scale-105">
+                Download App
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center text-center p-8 relative overflow-hidden">
+        <!-- Particle container -->
+        <div id="particles-js" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0;"></div>
+        <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-purple-500 mb-4 animate-fadeInUp" style="position: relative; z-index: 1;">
+            Game Scop
+        </h1>
+        <p class="text-xl sm:text-2xl lg:text-3xl text-zinc-300 max-w-3xl mb-10 animate-fadeIn" style="position: relative; z-index: 1;">
+            Discover the most popular and exciting upcoming games. Your ultimate guide to the gaming world.
+        </p>
+        <button id="downloadBtnHero" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 animate-fadeIn delay-1" style="position: relative; z-index: 1;">
+            Download Game Scop Now
+        </button>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-zinc-900 border-t border-b border-zinc-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-purple-400 mb-12">Why Game Scop?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-zinc-800 p-8 rounded-xl shadow-lg glowing-border transition-shadow duration-300">
+                    <div class="text-5xl mb-4 text-emerald-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gravatar" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#34D399" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 4v-1a8 8 0 0 1 16 0v1" />
+                            <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 -4v1a8 8 0 0 1 -16 0v-1" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-zinc-100 mb-3">Stay Updated</h3>
+                    <p class="text-zinc-400">Get real-time insights into the latest popular and upcoming game releases.</p>
+                </div>
+                <div class="bg-zinc-800 p-8 rounded-xl shadow-lg glowing-border transition-shadow duration-300">
+                    <div class="text-5xl mb-4 text-lime-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brush" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#84CC16" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 21v-4a4 4 0 1 1 8 0v4" />
+                            <path d="M3 17a4 4 0 0 0 8 0" />
+                            <path d="M21 6l-5 5l-5 -5l5 -5l5 5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-zinc-100 mb-3">Clean Interface</h3>
+                    <p class="text-zinc-400">Browse games with an intuitive, modern, and beautiful user experience.</p>
+                </div>
+                <div class="bg-zinc-800 p-8 rounded-xl shadow-lg glowing-border transition-shadow duration-300">
+                    <div class="text-5xl mb-4 text-amber-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#F59E0B" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                            <path d="M21 21l-6 -6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-zinc-100 mb-3">Detailed Views</h3>
+                    <p class="text-zinc-400">Click on any game to reveal more details including platforms and critic scores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-20 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-purple-400 mb-6">Ready to Explore?</h2>
+            <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-10">
+                Join thousands of gamers who trust Game Scop to keep them informed.
+            </p>
+            <button id="downloadBtnCta" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+                Start Gaming Today!
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 py-8 border-t border-zinc-800">
+        <div class="container mx-auto px-4 text-center text-zinc-500 text-sm">
+            &copy; 2025 Game Scop. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        /* particlesJS.load(@dom-id, @path-json, @callback (optional) ); */
+        document.addEventListener('DOMContentLoaded', () => {
+            particlesJS.load('particles-js', 'particlesjs-config.json', function() {
+                console.log('particles.js config loaded');
+            });
+
+            const downloadButtons = [
+                document.getElementById('downloadBtnNav'),
+                document.getElementById('downloadBtnHero'),
+                document.getElementById('downloadBtnCta')
+            ];
+
+            downloadButtons.forEach(btn => {
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        // In a real application, this would trigger a file download or redirection.
+                        // For this demo, we'll just show an alert or a temporary message.
+                        alert('Download for Game Scop is starting soon!');
+                        console.log('Download button clicked!');
+                        // You could also dynamically create a temporary message on the page
+                        // For example:
+                        // const messageDiv = document.createElement('div');
+                        // messageDiv.textContent = 'Download starting...';
+                        // messageDiv.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 bg-green-500 text-white py-2 px-4 rounded-md shadow-lg transition-opacity duration-300 opacity-100';
+                        // document.body.appendChild(messageDiv);
+                        // setTimeout(() => { messageDiv.remove(); }, 3000);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
