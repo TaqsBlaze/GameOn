@@ -134,13 +134,17 @@
         /* Image Gallery Styles */
         .image-gallery-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Align items to the start */
             align-items: center;
-            overflow: hidden;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            overflow-y: hidden; /* Hide vertical scrollbar */
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+            padding-bottom: 10px; /* Add some padding at the bottom for scrollbar */
         }
         .image-gallery {
             display: flex;
             gap: 20px;
+            white-space: nowrap; /* Prevent items from wrapping to the next line */
         }
         .gallery-image {
             width: 300px;
@@ -333,6 +337,14 @@
                             image.style.animation = 'slideInRight 1s ease-out forwards';
                         }
                     });
+
+                    // Ensure scrolling is enabled after animations complete
+                    setTimeout(() => {
+                        const galleryContainer = reveals[i].querySelector('.image-gallery-container');
+                        if (galleryContainer) {
+                            galleryContainer.style.overflowX = 'auto';
+                        }
+                    }, 1000); // Adjust time to match animation duration
                 } else {
                     reveals[i].classList.remove("active");
                     // Reset gallery animations when the section is out of view
@@ -340,6 +352,12 @@
                     galleryImages.forEach(image => {
                         image.style.animation = 'none';
                     });
+
+                    // Reset overflow style when the section is out of view
+                    const galleryContainer = reveals[i].querySelector('.image-gallery-container');
+                    if (galleryContainer) {
+                        galleryContainer.style.overflowX = 'hidden';
+                    }
                 }
             }
         }
