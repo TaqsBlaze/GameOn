@@ -141,17 +141,17 @@
         .image-gallery {
             display: flex;
             gap: 20px;
-            animation: slideIn 1s ease-out forwards;
         }
         .gallery-image {
             width: 300px;
             height: auto;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
         }
         .gallery-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.1); /* Slightly larger on hover */
+            box-shadow: 0 8px 12px rgba(107, 33, 168, 0.4); /* More prominent shadow on hover */
         }
 
         @keyframes slideIn {
@@ -279,18 +279,20 @@
     <section class="py-20">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-purple-400 mb-12 text-center">Screenshots</h2>
-            <div class="image-gallery-container">
-                <div class="image-gallery">
-                    <img src="https://taqsblaze.github.io/GameOn/images/scop.png" alt="GameOn Screenshot 1" class="gallery-image">
-                    <img src="https://taqsblaze.github.io/GameOn/images/scop2.png" alt="GameOn Screenshot 2" class="gallery-image">
-                    <img src="https://taqsblaze.github.io/GameOn/images/scop3.png" alt="GameOn Screenshot 3" class="gallery-image">
+            <div class="scroll-reveal">
+                <div class="image-gallery-container">
+                    <div class="image-gallery">
+                        <img src="https://taqsblaze.github.io/GameOn/images/scop.png" alt="GameOn Screenshot 1" class="gallery-image">
+                        <img src="https://taqsblaze.github.io/GameOn/images/scop2.png" alt="GameOn Screenshot 2" class="gallery-image">
+                        <img src="https://taqsblaze.github.io/GameOn/images/scop3.png" alt="GameOn Screenshot 3" class="gallery-image">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Call to Action Section -->
-    <section class="py-20 text-center">
+    <section class="py-20 bg-zinc-900 border-t border-b border-zinc-800 text-center">
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-purple-400 mb-6">Ready to Explore?</h2>
             <p class="text-xl text-zinc-300 max-w-2xl mx-auto mb-10">
@@ -312,5 +314,40 @@
     <!-- particles.js library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="page.min.js"></script>
+    <script>
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll(".scroll-reveal");
+            for (let i = 0; i < reveals.length; i++) {
+                let windowHeight = window.innerHeight;
+                let revealTop = reveals[i].getBoundingClientRect().top;
+                let revealPoint = 50;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add("active");
+                    // Trigger gallery animations when the section is in view
+                    const galleryImages = reveals[i].querySelectorAll('.gallery-image');
+                    galleryImages.forEach((image, index) => {
+                        if (index % 2 === 0) {
+                            image.style.animation = 'slideInLeft 1s ease-out forwards';
+                        } else {
+                            image.style.animation = 'slideInRight 1s ease-out forwards';
+                        }
+                    });
+                } else {
+                    reveals[i].classList.remove("active");
+                    // Reset gallery animations when the section is out of view
+                    const galleryImages = reveals[i].querySelectorAll('.gallery-image');
+                    galleryImages.forEach(image => {
+                        image.style.animation = 'none';
+                    });
+                }
+            }
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        // Run on load in case elements are already visible
+        revealOnScroll();
+    </script>
 </body>
 </html>
