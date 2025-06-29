@@ -130,6 +130,67 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #6b7280; /* Lighter gray on hover */
         }
+
+        /* Image Gallery Styles */
+        .image-gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+            animation: slideIn 1s ease-out forwards;
+        }
+        .gallery-image {
+            width: 300px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .gallery-image:nth-child(odd) {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .gallery-image:nth-child(even) {
+            animation: slideInRight 1s ease-out forwards;
+        }
     </style>
 </head>
 <body class="animated-gradient-background">
@@ -209,6 +270,22 @@
                     </div>
                     <h3 class="text-2xl font-semibold text-zinc-100 mb-3">Detailed Views</h3>
                     <p class="text-zinc-400">Click on any game to reveal more details including platforms and critic scores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-purple-400 mb-12 text-center">Screenshots</h2>
+            <div class="image-gallery-container">
+                <div class="image-gallery">
+                    <img src="https://raw.githubusercontent.com/TaqsBlaze/GameOn/main/images/1.png" alt="GameOn Screenshot 1" class="gallery-image">
+                    <img src="https://raw.githubusercontent.com/TaqsBlaze/GameOn/main/images/2.png" alt="GameOn Screenshot 2" class="gallery-image">
+                    <img src="https://raw.githubusercontent.com/TaqsBlaze/GameOn/main/images/3.png" alt="GameOn Screenshot 3" class="gallery-image">
+                    <img src="https://raw.githubusercontent.com/TaqsBlaze/GameOn/main/images/4.png" alt="GameOn Screenshot 4" class="gallery-image">
+                    <img src="https://raw.githubusercontent.com/TaqsBlaze/GameOn/main/images/5.png" alt="GameOn Screenshot 5" class="gallery-image">
                 </div>
             </div>
         </div>
