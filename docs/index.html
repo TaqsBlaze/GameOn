@@ -6,9 +6,9 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://taqsblaze.github.io/GameOn">
-    <meta property="og:title" content="Game Scop - Access to latest and upcoming games">
+    <meta property="og:title" content="GameOn - Access to latest and upcoming games">
     <meta property="og:site_name" content="Game Scop">
-    <meta property="og:description" content="Keep track, stay up to dat and access latest and up coming games">
+    <meta property="og:description" content="Keep track, stay up to date and access latest and up coming games">
     <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://taqsblaze.github.io/GameOn/images/preview.png">
     <meta property="og:image:width" content="1200">
@@ -17,17 +17,17 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://taqsblaze.github.io/GameOn">
-    <meta property="twitter:title" content="Game Scop - Access to latest and upcoming games">
-    <meta property="twitter:description" content="Keep track, stay up to dat and access latest and up coming games">
+    <meta property="twitter:title" content="GameOn - Access to latest and upcoming games">
+    <meta property="twitter:description" content="Keep track, stay up to date and access latest and up coming games">
     <meta property="twitter:image" content="https://taqsblaze.github.io/GameOn/images/preview.png">
     
     <!-- Additional SEO meta tags -->
-    <meta name="description" content="Keep track, stay up to dat and access latest and up coming games">
+    <meta name="description" content="Keep track, stay up to date and access latest and up coming games">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Games, Gaming, PS5, Console, X-Box">
     <meta name="author" content="Tanaka Chinengundu">
     <link rel="canonical" href="https://taqsblaze.github.io/GameOn">
-    <title>Game Scop - Discover Your Next Favorite Game</title>
+    <title>GameOn - Discover Your Next Favorite Game</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Outfit -->
@@ -136,7 +136,7 @@
     <!-- Header -->
     <header class="absolute top-0 left-0 w-full p-6 z-10">
         <nav class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-purple-500 tracking-tight">Game Scop</a>
+            <a href="#" class="text-3xl font-extrabold text-purple-500 tracking-tight">GameOn</a>
             <button id="downloadBtnNav" class="bg-purple-700 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition-all duration-300 transform hover:scale-105">
                 Download App
             </button>
@@ -148,20 +148,33 @@
         <!-- Particle container -->
         <div id="particles-js" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0;"></div>
         <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-purple-500 mb-4 animate-fadeInUp" style="position: relative; z-index: 1;">
-            Game Scop
+            GameOn
         </h1>
         <p class="text-xl sm:text-2xl lg:text-3xl text-zinc-300 max-w-3xl mb-10 animate-fadeIn" style="position: relative; z-index: 1;">
             Discover the most popular and exciting upcoming games. Your ultimate guide to the gaming world.
         </p>
-        <button id="downloadBtnHero" class="bg-purple-700 hover:bg-purple-600 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 animate-fadeIn delay-1" style="position: relative; z-index: 1;">
-            Download Game Scop Now
-        </button>
+        <div class="flex justify-center items-center space-x-4 animate-fadeIn delay-1" style="position: relative; z-index: 1;">
+            <button id="downloadBtnWindows" class="flex items-center bg-purple-700 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="3" width="9" height="8" fill="#00ADEF"/>
+                    <rect x="13" y="3" width="9" height="8" fill="#00ADEF"/>
+                    <rect x="2" y="13" width="9" height="8" fill="#00ADEF"/>
+                    <rect x="13" y="13" width="9" height="8" fill="#00ADEF"/>
+                  </svg>
+                  
+                Windows
+            </button>
+            <button id="downloadBtnLinux" class="flex items-center bg-purple-700 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+                <img src="https://www.svgrepo.com/show/330851/linux.svg" alt="Linux Logo" class="w-7 h-7 mr-2">
+                Linux
+            </button>
+        </div>
     </section>
 
     <!-- Features Section -->
     <section class="py-20 bg-zinc-900 border-t border-b border-zinc-800">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-purple-400 mb-12">Why Game Scop?</h2>
+            <h2 class="text-4xl font-bold text-purple-400 mb-12">Why GameOn ?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="bg-zinc-800 p-8 rounded-xl shadow-lg glowing-border transition-shadow duration-300">
                     <div class="text-5xl mb-4 text-emerald-400">
@@ -217,43 +230,12 @@
     <!-- Footer -->
     <footer class="bg-zinc-900 py-8 border-t border-zinc-800">
         <div class="container mx-auto px-4 text-center text-zinc-500 text-sm">
-            &copy; 2025 Game Scop. All rights reserved.
+            &copy; 2025 GameOn. All rights reserved.
         </div>
     </footer>
 
     <!-- particles.js library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        /* particlesJS.load(@dom-id, @path-json, @callback (optional) ); */
-        document.addEventListener('DOMContentLoaded', () => {
-            particlesJS.load('particles-js', 'particlesjs-config.json', function() {
-                console.log('particles.js config loaded');
-            });
-
-            const downloadButtons = [
-                document.getElementById('downloadBtnNav'),
-                document.getElementById('downloadBtnHero'),
-                document.getElementById('downloadBtnCta')
-            ];
-
-            downloadButtons.forEach(btn => {
-                if (btn) {
-                    btn.addEventListener('click', () => {
-                        // In a real application, this would trigger a file download or redirection.
-                        // For this demo, we'll just show an alert or a temporary message.
-                        alert('Download for Game Scop is starting soon!');
-                        console.log('Download button clicked!');
-                        // You could also dynamically create a temporary message on the page
-                        // For example:
-                        // const messageDiv = document.createElement('div');
-                        // messageDiv.textContent = 'Download starting...';
-                        // messageDiv.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 bg-green-500 text-white py-2 px-4 rounded-md shadow-lg transition-opacity duration-300 opacity-100';
-                        // document.body.appendChild(messageDiv);
-                        // setTimeout(() => { messageDiv.remove(); }, 3000);
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="page.min.js"></script>
 </body>
 </html>
